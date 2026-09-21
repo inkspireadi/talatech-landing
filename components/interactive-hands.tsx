@@ -19,7 +19,6 @@ type Particle = {
 
 const PARTICLE_STEP = 2;
 const PARTICLE_RADIUS = 0.82;
-const PARTICLE_COLOR = "#424242";
 const PARTICLE_OPACITY = 0.76;
 const INTERACTION_SPREAD = 82;
 const FORMATION_DURATION = 1900;
@@ -52,6 +51,7 @@ export function InteractiveHands() {
     let formationAmount = reducedMotion.matches ? 0 : 1;
     let formationStartTime: number | null = null;
     let hasPlayedFormation = reducedMotion.matches;
+    let particleColor = "#424242";
 
     const clear = () => context.clearRect(0, 0, logicalWidth, logicalHeight);
 
@@ -68,7 +68,7 @@ export function InteractiveHands() {
         context.arc(x, y, PARTICLE_RADIUS, 0, Math.PI * 2);
       }
 
-      context.fillStyle = PARTICLE_COLOR;
+      context.fillStyle = particleColor;
       context.globalAlpha = PARTICLE_OPACITY;
       context.fill();
       context.globalAlpha = 1;
@@ -249,8 +249,23 @@ export function InteractiveHands() {
     const resizeObserver = new ResizeObserver(buildParticles);
     resizeObserver.observe(wrapper);
 
+    const syncParticleColor = () => {
+      particleColor =
+        window.getComputedStyle(wrapper).getPropertyValue("--particle-color").trim() ||
+        "#424242";
+      drawParticles();
+    };
+
+    syncParticleColor();
+    const themeObserver = new MutationObserver(syncParticleColor);
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
     return () => {
       resizeObserver.disconnect();
+      themeObserver.disconnect();
       source.removeEventListener("load", buildParticles);
       if (frameId) window.cancelAnimationFrame(frameId);
       startAnimationRef.current = () => undefined;

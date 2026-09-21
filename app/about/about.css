@@ -470,3 +470,40 @@
   .about-division:hover,
   .about-text-link:hover span { transform: none; }
 }
+
+[data-theme="dark"] .about-division {
+  background: linear-gradient(145deg, #3b263f, #2f2d40 65%, #263749);
+}
+
+[data-theme="dark"] .about-division__inner {
+  background: var(--surface-raised);
+}
+
+[data-theme="dark"] .about-division__number {
+  color: var(--muted-ink);
+}
+
+[data-theme="dark"] .about-principles li {
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .about-story__visual-caption {
+  background: rgba(39, 39, 39, 0.88);
+}
+
+[data-theme="dark"] .about-story__dashboard {
+  border-color: var(--border);
+  background: rgba(39, 39, 39, 0.72);
+}
+
+[data-theme="dark"] .about-group {
+  background: var(--surface-subtle);
+}
+
+[data-theme="dark"] .about-cta {
+  background: var(--surface-soft);
+}
+
+[data-theme="dark"] .about-cta::before {
+  background: linear-gradient(90deg, #2b2430 2%, #2b2430ed 32%, #2b24300d 100%);
+}

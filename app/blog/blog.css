@@ -131,3 +131,51 @@ body:has(.blog-site) { overflow-x: clip; }
 @media (max-width: 1000px) { .blog-spotlight { gap: 22px; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); } .blog-latest__item { grid-template-columns: 72px minmax(0,1fr); gap: 10px; } .blog-latest__item .blog-artwork { height: 76px; } .blog-latest__item h3 { font-size: 13px; } .blog-latest__item .blog-meta { font-size: 9px; } .blog-featured__copy { padding: 22px; } .blog-featured__foot { align-items: start; flex-direction: column; } .blog-card-grid { gap: 14px; } .blog-card__body { padding: 16px; } .blog-card h3 { font-size: 17px; } .blog-card .blog-artwork__window { transform: translate(-50%,-38%) scale(.65); } .article-layout { grid-template-columns: 190px minmax(0,1fr); gap: 36px; } }
 @media (prefers-reduced-motion: reduce) { .blog-intro h1, .blog-intro > p, .blog-intro > .section-eyebrow, .article-intro h1, .article-intro > .section-eyebrow, .article-deck { animation: none; } .blog-site .blog-card, .blog-artwork > img, .blog-text-link, .blog-read > span { transition: none; } .blog-card:hover, .blog-featured > a:hover .blog-artwork > img, .blog-card__link:hover .blog-artwork > img { transform: none; } }
 @media (max-width: 1000px) { .blog-latest__item .blog-artwork__window { transform: translate(-50%,-50%) scale(.22); } }
+
+[data-theme="dark"] .blog-featured,
+[data-theme="dark"] .blog-card,
+[data-theme="dark"] .article-cover {
+  background: linear-gradient(145deg, #48294c, #323246 65%, #293f52);
+}
+
+[data-theme="dark"] .blog-featured > a,
+[data-theme="dark"] .blog-card__link,
+[data-theme="dark"] .blog-artwork__window,
+[data-theme="dark"] .blog-filters button,
+[data-theme="dark"] .blog-share {
+  background: var(--surface-raised);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .blog-artwork--hands {
+  background: #2b2430;
+}
+
+[data-theme="dark"] .blog-artwork__signal {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(30, 30, 30, 0.78);
+}
+
+[data-theme="dark"] .blog-artwork__window {
+  border-color: #3a3039;
+}
+
+[data-theme="dark"] .blog-callout,
+[data-theme="dark"] .article-sidebar__note,
+[data-theme="dark"] .article-takeaway {
+  background: var(--surface-soft);
+  border-color: #5a3c6b;
+}
+
+[data-theme="dark"] .article-checklist {
+  background: #222e38;
+}
+
+[data-theme="dark"] .article-body section p {
+  color: var(--muted-ink);
+}
+
+[data-theme="dark"] .blog-pagination button[aria-current="page"] {
+  background: var(--accent);
+  color: #ffffff;
+}

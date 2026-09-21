@@ -65,3 +65,40 @@
   .service-growth > div { grid-template-columns: 1fr; gap: 3px; }
 }
 @media (prefers-reduced-motion: reduce) { .service-card { transition: none; } .service-card:hover { transform: none; } }
+
+[data-theme="dark"] .service-breadcrumb,
+[data-theme="dark"] .service-card__inner,
+[data-theme="dark"] .service-terms span {
+  background: var(--surface-raised);
+}
+
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .service-card:nth-child(even),
+[data-theme="dark"] .service-card--recommended {
+  background: linear-gradient(145deg, #472a48, #323145 65%, #294154);
+}
+
+[data-theme="dark"] .service-card--recommended .service-card__inner {
+  background: #29232d;
+}
+
+[data-theme="dark"] .service-card__number,
+[data-theme="dark"] .service-recommendation p {
+  color: var(--muted-ink);
+}
+
+[data-theme="dark"] .service-recommendation {
+  background: var(--surface-subtle);
+}
+
+[data-theme="dark"] .service-card--recommended .service-recommendation {
+  background: #3a2a44;
+}
+
+[data-theme="dark"] .service-commitment {
+  background: var(--surface-soft);
+}
+
+[data-theme="dark"] .service-terms span {
+  border-color: #5a4264;
+}

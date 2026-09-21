@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HeaderNotch } from "@/components/header-notch";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteHeader() {
   return (
@@ -10,7 +11,12 @@ export function SiteHeader() {
       <Link className="site-header__brand" href="/" aria-label="Talatech home">
         <Image src="/assets/talatech-logo.svg" alt="Talatech" width={158} height={34} priority />
       </Link>
-      <Link className="button button--primary site-header__contact" href="/contact">Get in touch</Link>
+      <div className="site-header__actions">
+        <Link className="button button--primary site-header__contact" href="/contact">
+          Get in touch
+        </Link>
+        <ThemeToggle />
+      </div>
     </header>
   );
 }
